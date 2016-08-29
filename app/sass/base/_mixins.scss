@@ -1,0 +1,57 @@
+@mixin firasans($style : regular) {
+    @if $style == regular {
+        font-family: 'FiraSans-Regular', sans-serif;
+    }
+
+    @if $style == medium {
+        font-family: 'FiraSans-Medium';
+    }
+
+    @if $style == light {
+        font-family: 'FiraSans-Light';
+    }
+}
+
+@mixin clearfix {
+    &::before,
+    &::after {
+        content: "";
+        display: table;
+    }
+    &::after {
+        clear: both;
+    }
+}
+
+// ===== placeholder color =====
+@mixin placecolor($color: #5f5f5f) {
+    &::-webkit-input-placeholder {
+        color: $color;
+    }
+    &:-moz-placeholder {
+        color: $color;
+    }
+    &::-moz-placeholder {
+        color: $color;
+    }
+    &:-ms-input-placeholder {
+        color: $color;
+    }
+}
+
+
+// ===== calculate to Rem =====
+@function calculateRem($size) {
+  $remSize: $size / 14px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+@mixin line-height($size) {
+  line-height: $size;
+  line-height: calculateRem($size);
+}

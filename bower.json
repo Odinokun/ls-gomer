@@ -1,0 +1,23 @@
+{
+  "name": "ls-gomer",
+  "description": "тренировочное портфолио от loftschool (pug, scss, gulp, bower)",
+  "main": "gulpfile.js",
+  "authors": [
+    "odinokun"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Odinokun/ls-gomer",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "modernizer": "^2.8.2",
+    "jquery": "2.1.4",
+    "normalize-css": "normalize.css#^4.2.0"
+  }
+}

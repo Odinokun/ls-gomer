@@ -2,8 +2,6 @@
 
 const gulp          = require('gulp');
 
-const pug           = require('gulp-pug');            // компилирует pug
-
 const sass          = require('gulp-sass');           // компилирует sass
 const sourcemaps    = require('gulp-sourcemaps');     // создает sourcemaps
 const autoprefixer  = require('gulp-autoprefixer');   // для добавления префиксов
@@ -18,16 +16,32 @@ const svgmin        = require('gulp-svgmin');         // минификация 
 const del           = require('del');                 // удаление файлов/директорий
 const browserSync   = require('browser-sync');        // виртуальный сервер
 
+const concat        = require('gulp-concat');         // конкатенации файлов
+const fileinclude   = require('gulp-file-include');   // работа с инклюдами
+
 const cache         = require('gulp-cache');          // для кеширования файлов
 const useref        = require('gulp-useref');         // парсинг-перенос файлов
 const gulpif        = require('gulp-if');
 
 
-// ============ компиляция pug в html ============
-gulp.task('jade', function() {
-  return gulp.src('app/pug/*.pug')
-    .pipe(pug({pretty: true}))
+const prettify        = require('gulp-html-prettify');
+
+// ============ сборка html ============
+gulp.task('html', function() {
+  gulp.src('app/html/*.html')
+    .pipe(fileinclude({
+      //prefix: '@@',
+      //basepath: '@file'
+    }))
     .pipe(gulp.dest('app/'));
+});
+
+
+// ============ выравнивание html ============
+gulp.task('pretti', function() {
+  gulp.src('app/*.html')
+    .pipe(prettify({indent_char: ' ', indent_size: 4}))
+    .pipe(gulp.dest('app/'))
 });
 
 
@@ -86,13 +100,11 @@ gulp.task('clean', ['img'], function() {
 
 
 // ============ слежение за изменениями в файлах ============
-gulp.task('watch', ['browser-sync', 'jade', 'sass', 'img'], function() {
+gulp.task('watch', ['browser-sync', 'html', 'pretti', 'sass', 'img'], function() {
   gulp.watch('app/sass/**/*.scss', ['sass']);         // sass
   gulp.watch('app/js/**/*.js', browserSync.reload);   // js
-  gulp.watch('app/**/*.pug', ['jade']);         // изменения в исходниках html
-  gulp.watch('app/*.html', browserSync.reload);       // изменения в собранном html
-  //gulp.watch('app/html/**/*.html', ['html']);         // изменения в исходниках html
-  //gulp.watch('app/*.html', browserSync.reload);       // изменения в собранном html
+  gulp.watch('app/html/**/*.html', ['html']);         // изменения в исходниках html
+  gulp.watch('app/*.html', ['pretti'], browserSync.reload);       // изменения в собранном html
 });
 
 

@@ -1,0 +1,39 @@
+{
+  "name": "ls-gomer",
+  "version": "1.0.0",
+  "description": "тренировочное портфолио от loftschool (pug, scss, gulp, bower)",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Odinokun/ls-gomer.git"
+  },
+  "author": "odinokun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Odinokun/ls-gomer/issues"
+  },
+  "homepage": "https://github.com/Odinokun/ls-gomer#readme",
+  "devDependencies": {
+    "browser-sync": "^2.14.0",
+    "del": "^2.2.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-cache": "^0.4.5",
+    "gulp-concat": "^2.6.0",
+    "gulp-csso": "^2.0.0",
+    "gulp-file-include": "^0.14.0",
+    "gulp-html-prettify": "0.0.1",
+    "gulp-if": "^2.0.1",
+    "gulp-imagemin": "^3.0.2",
+    "gulp-notify": "^2.2.0",
+    "gulp-pngquant": "^1.0.10",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-svgmin": "^1.2.2",
+    "gulp-uglify": "^2.0.0",
+    "gulp-useref": "^3.1.0"
+  }
+}
