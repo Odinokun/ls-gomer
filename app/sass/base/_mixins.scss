@@ -1,14 +1,10 @@
-@mixin firasans($style : regular) {
+@mixin opensans($style : regular) {
     @if $style == regular {
-        font-family: 'FiraSans-Regular', sans-serif;
+        font-family: 'OpenSans-Regular', sans-serif;
     }
 
-    @if $style == medium {
-        font-family: 'FiraSans-Medium';
-    }
-
-    @if $style == light {
-        font-family: 'FiraSans-Light';
+    @if $style == semibold {
+        font-family: 'OpenSans-Semibold';
     }
 }
 

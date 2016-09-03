@@ -16,8 +16,19 @@ body {
     min-width: 320px;
     height: 100%;
     color: #696969;
-    // @include font-size(14px);
-    // @include opensans(regular);
+
+    @include font-size(14px);
+    @include opensans(regular);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
 }
 .wrapper {
     display: flex;
@@ -31,8 +42,14 @@ body {
 }
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 980px;
     margin: 0 auto;
-    padding: 0 30px;
+    padding: 0 10px;
+}
+.container-big {
+    width: 100%;
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 0 17px;
 }
 /*********** end #main.css ***********/

@@ -33,15 +33,8 @@ gulp.task('html', function() {
       //prefix: '@@',
       //basepath: '@file'
     }))
+    .pipe(prettify({indent_char: ' ', indent_size: 4}))  //выравнивание html
     .pipe(gulp.dest('app/'));
-});
-
-
-// ============ выравнивание html ============
-gulp.task('pretti', function() {
-  gulp.src('app/*.html')
-    .pipe(prettify({indent_char: ' ', indent_size: 4}))
-    .pipe(gulp.dest('app/'))
 });
 
 
@@ -100,11 +93,11 @@ gulp.task('clean', ['img'], function() {
 
 
 // ============ слежение за изменениями в файлах ============
-gulp.task('watch', ['browser-sync', 'html', 'pretti', 'sass', 'img'], function() {
+gulp.task('watch', ['browser-sync', 'html', 'sass', 'img'], function() {
   gulp.watch('app/sass/**/*.scss', ['sass']);         // sass
   gulp.watch('app/js/**/*.js', browserSync.reload);   // js
   gulp.watch('app/html/**/*.html', ['html']);         // изменения в исходниках html
-  gulp.watch('app/*.html', ['pretti'], browserSync.reload);       // изменения в собранном html
+  gulp.watch('app/*.html', browserSync.reload);       // изменения в собранном html
 });
 
 
